@@ -15,11 +15,6 @@ const Posts=[
 ]
 app.use(express.static('build'));
 
-app.get('*', (req, res) => {
-      res.sendFile(path.resolve(__dirname,  'build', 'index.html'));
-    });
-
-
 app.get("/getPosts",function(req,res){
     res.json({
         message:"Success",
@@ -41,6 +36,15 @@ app.post("/createPost",function(req,res){
     //
 
 })
+
+
+
+app.get('*', (req, res) => {
+      res.sendFile(path.resolve(__dirname,  'build', 'index.html'));
+    });
+
+
+
 
 
 app.listen(8070,function(){
